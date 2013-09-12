@@ -30,7 +30,8 @@ void WebClient::onMessage(Client* c, websocketpp::connection_hdl hdl, message_pt
 	Client::connection_ptr con = c->get_con_from_hdl(hdl);
 	std::string res_s = con->get_resource();
 	if (res_s != "/codenjoy-contest/ws?user=" + userName) {
-		return;
+		res_s = "Server answer is not ok: " + res_s;
+		throw new std::exception(res_s.c_str());
 	}
 	std::string buffer_got = pMsg->get_payload();
 	std::wstring boardString;
