@@ -79,7 +79,7 @@ int Board::boardSize() const {
 }
 
 String Board::boardAsString() const {
-	std::wstringstream ss;
+	StringStream ss;
 	for (auto i = 0; i < size; ++i) {
 		ss << board.substr(i * size, (i + 1) * size) << L'\n';
 	}
@@ -96,7 +96,7 @@ PointList Board::getBarriers() const {
 }
 
 String Board::toString() const {
-	std::wstringstream ss;
+	StringStream ss;
 	ss << L"Board:\n " << boardAsString() 
 		<< L"Bomberman at: " << getBomberman().toString() << L"\n"
 		<< L"Other Bombermans at: " << pointListToString(getOtherBombermans()) << L"\n" 

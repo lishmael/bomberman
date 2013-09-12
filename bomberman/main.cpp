@@ -1,13 +1,13 @@
 ﻿#include <iostream>
 
-#include "Test.h"
 #include "utils\RandomDice.h"
+#include "DumbDirectionSolver.h"
 #include "WebClient.h"
 
 int main(int argc, char** argv) {
 	RandomDice* rd = new RandomDice();
 	DumbDirectionSolver* dds = new DumbDirectionSolver(rd);
-	Test t(dds, rd);
+
 	WebClient wcl(dds);
 	try {
 		wcl.run("ws://tetrisj.jvmhost.net:12270/codenjoy-contest/ws", "lishmael");

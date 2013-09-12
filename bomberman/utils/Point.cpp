@@ -21,7 +21,7 @@ void Point::setNull(bool state) {
 }
 
 String Point::toString() const {
-	std::wstringstream ss;
+	StringStream ss;
 	ss << "[" << x << "," << y << "]";
 	return ss.str();
 }
