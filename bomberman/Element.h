@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef ELEMENT_H
+#define ELEMENT_H
 
 #include "utils/utils.h"
 
@@ -19,3 +20,5 @@ private:
 
 	ElementItem elem;
 };
+
+#endif

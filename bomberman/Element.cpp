@@ -31,13 +31,13 @@ ElementMap Element::initialiseElements() {
 	/// This is your Bomberman
 	mapOfElements[L"BOMBERMAN"] =  L'☺';             // this is what he usually looks like
 	mapOfElements[L"BOMB_BOMBERMAN"] =  L'☻';        // this is if he is sitting on own bomb
-	mapOfElements[L"DEAD_BOMBERMAN"] =  L'Ѡ';        // oops, your Bomberman is dead  ("don't worry, he will appear somewhere in next move
+	mapOfElements[L"DEAD_BOMBERMAN"] =  L'Ѡ';        // oops, your Bomberman is dead  (don't worry, he will appear somewhere in next move
 													// you're getting -200 for each death
 
 	/// this is other players Bombermans
 	mapOfElements[L"OTHER_BOMBERMAN"] =  L'♥';       // this is what other Bombermans looks like
 	mapOfElements[L"OTHER_BOMB_BOMBERMAN"] =  L'♠';  // this is if player just set the bomb
-	mapOfElements[L"OTHER_DEAD_BOMBERMAN"] =  L'♣';  // enemy corpse , Lit will disappear shortly, right on the next move
+	mapOfElements[L"OTHER_DEAD_BOMBERMAN"] =  L'♣';  // enemy corpse , it will disappear shortly, right on the next move
 								// if you've done it you'll get +1000
 
 	/// the bombs

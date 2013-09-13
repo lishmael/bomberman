@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef WEBCLIENT_H
+#define WEBCLIENT_H
 
 #include <boost\asio\ip\tcp.hpp>
 #include <websocketpp\client.hpp>
@@ -30,3 +31,4 @@ private:
 	std::string userName;
 };
 
+#endif

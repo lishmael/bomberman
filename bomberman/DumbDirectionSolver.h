@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DUMBDIRECTIONSOLVER_H
+#define DUMBDIRECTIONSOLVER_H
 
 #include "utils\utils.h"
 
@@ -23,3 +24,4 @@ private:
 	Board board;
 };
 
+#endif

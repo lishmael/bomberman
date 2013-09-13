@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LENGTHTOXY_H
+#define LENGTHTOXY_H
 
 #include <stdexcept>
 
@@ -13,3 +14,4 @@ private:
 	int boardSize;
 };
 
+#endif

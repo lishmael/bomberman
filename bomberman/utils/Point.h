@@ -1,6 +1,10 @@
-#pragma once
+#ifndef POINT_H
+#define POINT_H
 
 #include "utils.h"
+
+class Point;
+typedef std::list<Point> PointList;
 
 class Point {
 public:
@@ -23,3 +27,4 @@ private:
 	bool isSetAsNull;
 };
 
+#endif 

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RANDOMDICE_H
+#define RANDOMDICE_H
 
 #include "utils.h"
 #include "Dice.h"
@@ -11,3 +12,5 @@ public:
 private:
 	std::default_random_engine generator;
 };
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DICE_H
+#define DICE_H
 
 #include "utils.h"
 
@@ -7,3 +8,5 @@ public:
 	Dice() {};
 	virtual int next(int max) = 0;
 };
+
+#endif
