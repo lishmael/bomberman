@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 
-#include "utils\RandomDice.h"
+#include "utils/RandomDice.h"
 #include "DumbDirectionSolver.h"
 #include "WebClient.h"
 
