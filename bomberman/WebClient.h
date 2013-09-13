@@ -5,9 +5,12 @@
 #include <websocketpp/client.hpp>
 #include <websocketpp/config/asio_no_tls_client.hpp>
 #include "utils/utils.h"
-#include <Windows.h>
 #include "DirectionSolver.h"
 #include "utils/Board.h"
+
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 using websocketpp::lib::placeholders::_1;
 using websocketpp::lib::placeholders::_2;

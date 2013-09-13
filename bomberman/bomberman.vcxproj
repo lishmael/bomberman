@@ -137,7 +137,6 @@
     <ClInclude Include="DirectionSolver.h" />
     <ClInclude Include="DumbDirectionSolver.h" />
     <ClInclude Include="Element.h" />
-    <ClInclude Include="Test.h" />
     <ClInclude Include="utils\Board.h" />
     <ClInclude Include="utils\Dice.h" />
     <ClInclude Include="utils\LengthToXY.h" />

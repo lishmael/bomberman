@@ -44,11 +44,12 @@ void WebClient::onMessage(Client* c, websocketpp::connection_hdl hdl, message_pt
 	}
 	std::string buffer_got = pMsg->get_payload();
 	std::wstring boardString;
+#ifdef _WIN32
 	boardString.resize(MultiByteToWideChar(CP_UTF8, 0, &buffer_got[0], buffer_got.length(),
 													   NULL, 0));
 	MultiByteToWideChar(CP_UTF8, 0, &buffer_got[0], buffer_got.length(),
 									&boardString[0], boardString.capacity());
-
+#endif
 	if (boardString.substr(0, 6) == L"board=") {
 		boardString = boardString.substr(6, boardString.length() - 6);
 
@@ -60,12 +61,13 @@ void WebClient::onMessage(Client* c, websocketpp::connection_hdl hdl, message_pt
 
 		String answer = solver->get(b);
 		std::string utf_answer;
+#ifdef _WIN32
 		utf_answer.resize(WideCharToMultiByte(CP_UTF8, 0, &answer[0], answer.length(),
 											   NULL, 0,  NULL, NULL));
 
 		WideCharToMultiByte(CP_UTF8, 0, &answer[0], answer.length(),
 										&utf_answer[0], utf_answer.capacity(), NULL, NULL);
-
+#endif
 		if (utf_answer == "") { // This happens if bomberman's still dead
 			if (answer != L"") {
 				throw std::exception("WebClient::onMessage(...): Conversion from wchar_t to utf8 error!");
