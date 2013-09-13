@@ -1,13 +1,13 @@
 #ifndef DUMBDIRECTIONSOLVER_H
 #define DUMBDIRECTIONSOLVER_H
 
-#include "utils\utils.h"
+#include "utils/utils.h"
 
 #include "DirectionSolver.h"
 #include "Direction.h"
 #include "Element.h"
-#include "utils\Dice.h"
-#include "utils\Point.h"
+#include "utils/Dice.h"
+#include "utils/Point.h"
 
 class DumbDirectionSolver :	public DirectionSolver {
 public:

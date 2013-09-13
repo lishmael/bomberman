@@ -1,13 +1,13 @@
 ﻿#ifndef WEBCLIENT_H
 #define WEBCLIENT_H
 
-#include <boost\asio\ip\tcp.hpp>
-#include <websocketpp\client.hpp>
-#include <websocketpp\config\asio_no_tls_client.hpp>
-#include "utils\utils.h"
+#include <boost/asio/ip/tcp.hpp>
+#include <websocketpp/client.hpp>
+#include <websocketpp/config/asio_no_tls_client.hpp>
+#include "utils/utils.h"
 #include <Windows.h>
 #include "DirectionSolver.h"
-#include "utils\Board.h"
+#include "utils/Board.h"
 
 using websocketpp::lib::placeholders::_1;
 using websocketpp::lib::placeholders::_2;
