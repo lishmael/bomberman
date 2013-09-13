@@ -4,7 +4,7 @@
 Direction::Direction(int value) {
 	auto i = Directions.find(valueOf(value));
 	if (i == Directions.end()) {
-		throw new std::invalid_argument("No direction for " + value);
+		throw std::invalid_argument("Direction::Direction(int value): No direction for " + value);
 	}
 	dir = *i;
 }
@@ -12,7 +12,7 @@ Direction::Direction(int value) {
 Direction::Direction(String name) {
 	auto i = Directions.find(name);
 	if (i == Directions.end()) {
-		throw new std::invalid_argument("No direction for such name ");
+		throw std::invalid_argument("Direction::Direction(String name): No direction for such name ");
 	}
 	dir = *i;
 }
@@ -39,7 +39,7 @@ String Direction::valueOf(int value) {
 	for (auto i : Directions) {
 		if (std::get<0>(i.second) == value) return i.first;
 	}
-	throw new std::invalid_argument("No direction for " + value);
+	throw std::invalid_argument("Direction::valueOf(int value): No direction for " + value);
 }
 
 int Direction::changeX(int x) const {
@@ -73,7 +73,7 @@ DirectionMap Direction::initialise() {
 	mapOfDirections[L"ACT"] = DirectionVector(4, 0, 0);
 
 	// stop the Bomberman
-	mapOfDirections[L"STOP"] = DirectionVector(5, 0, 0);                                                
+	mapOfDirections[L"STOP"] = DirectionVector(5, 0, 0);
 	return mapOfDirections;
 }
 

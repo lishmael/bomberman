@@ -17,30 +17,30 @@ public:
 	Point getBomberman() const;
 	PointList getOtherBombermans() const;
 	bool isMyBombermanDead() const;
-	
-	int boardSize() const;	
+
+	int boardSize() const;
 
 	PointList getBarriers() const;
 	String toString() const;
-	
+
 	PointList getMeatChoppers() const;
-	
+
 	PointList getWalls() const;
 	PointList getDestoyWalls() const;
 	PointList getBombs() const;
 	PointList getBlasts() const;
-	
+
 	PointList getFutureBlasts() const;
-	
+
 	bool isNear(int x, int y, Element el) const;
 	int countNear(int x, int y, Element el) const;
-	
+
 	bool isBarrierAt(int x, int y) const;
 private:
 	PointList findAll(Element el) const;
 	PointList removeDuplicates(PointList lst) const;
 	String boardAsString() const;
-	
+
 	String board;
 	int size;
 	LengthToXY xyl;

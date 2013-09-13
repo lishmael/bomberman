@@ -7,7 +7,7 @@ class Element {
 public:
 	Element(wchar_t el);
 	Element(String name);
-	
+
 	bool operator==(const Element& el) const;
 
 	wchar_t getChar() const;

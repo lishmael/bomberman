@@ -1,5 +1,9 @@
-Debug/
-Release/
+*.ilk
+*.obj
+*.idb
+*.pdb
+*.*build*
+*.*log*
 *.bin
 *.exe
 *.dll
@@ -12,4 +16,6 @@ Release/
 *.sdf
 *.opensdf
 *.suo
+*.bkp
+*.bak
 *~

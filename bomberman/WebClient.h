@@ -20,7 +20,7 @@ class WebClient
 public:
 	WebClient(DirectionSolver* ds);
 	void run(std::string server, std::string user);
-	String get();
+
 private:
 	bool connect();
 	void onMessage(Client* c, websocketpp::connection_hdl hdl, message_ptr pMsg);

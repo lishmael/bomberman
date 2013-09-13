@@ -70,7 +70,7 @@ Direction DumbDirectionSolver::tryToMove(Point pt) {
 
 			again = bombAtWay || barrierAtWay || meatChopperNearWay;
 
-			bool deadEndAtWay = (board.countNear(newX, newY, Element(L"SPACE")) == 0 && !bomb.isNull());  
+			bool deadEndAtWay = (board.countNear(newX, newY, Element(L"SPACE")) == 0 && !bomb.isNull());
 			if (deadEndAtWay) {
 				bomb.setNull(true);
 			}
@@ -96,7 +96,7 @@ Direction DumbDirectionSolver::whereICanGoFrom(Point pt) {
 		   )  {
 		result = Direction(Direction::valueOf(dice->next(3)));
 	}
-    
+
 	if (count > 10) {
 		result = Direction(L"NULL");
     }

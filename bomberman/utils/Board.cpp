@@ -97,9 +97,9 @@ PointList Board::getBarriers() const {
 
 String Board::toString() const {
 	StringStream ss;
-	ss << L"Board:\n " << boardAsString() 
+	ss << L"Board:\n " << boardAsString()
 		<< L"Bomberman at: " << getBomberman().toString() << L"\n"
-		<< L"Other Bombermans at: " << pointListToString(getOtherBombermans()) << L"\n" 
+		<< L"Other Bombermans at: " << pointListToString(getOtherBombermans()) << L"\n"
 		<< L"Meat choppers at: " << pointListToString(getMeatChoppers()) << L"\n"
 		<< L"Destroy walls at: " << pointListToString(getDestoyWalls()) << L"\n"
 		<< L"Bombs at: " << pointListToString(getBombs()) << L"\n"
@@ -108,11 +108,11 @@ String Board::toString() const {
 	return ss.str();
 }
 
-PointList Board::getMeatChoppers() const { 
+PointList Board::getMeatChoppers() const {
 	return findAll(Element(L"MEAT_CHOPPER"));
 }
 
-PointList Board::getWalls() const { 
+PointList Board::getWalls() const {
 	return findAll(Element(L"WALL"));
 }
 
@@ -131,7 +131,7 @@ PointList Board::getBombs() const {
     return rslt;
 }
 
-PointList Board::getBlasts() const { 
+PointList Board::getBlasts() const {
 	return findAll(Element(L"BOOM"));
 }
 
@@ -139,7 +139,7 @@ PointList Board::getFutureBlasts() const {
 	PointList bombs = getBombs();
 	bombs.splice(bombs.end(), findAll(Element(L"OTHER_BOMB_BOMBERMAN")));
 	bombs.splice(bombs.end(), findAll(Element(L"BOMB_BOMBERMAN")));
-	
+
 	PointList rslt;
 	PointList walls = getWalls();
 	for (auto bmb : bombs) {
@@ -151,7 +151,7 @@ PointList Board::getFutureBlasts() const {
 			}
 		}
 	}
-	
+
 	return removeDuplicates(rslt);
 }
 
@@ -179,7 +179,7 @@ int Board::countNear(int x, int y, Element el) const {
 bool Board::isBarrierAt(int x, int y) const {
 	Point p(x, y);
 	if (p.isBad(size)) return false;
-	
+
 	PointList barriers = getBarriers();
 	for (auto b : barriers) {
 		if (b == p) return true;

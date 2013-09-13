@@ -18,7 +18,7 @@ String Element::valueOf(wchar_t ch) const {
 	for (auto i : Elements) {
 		if (i.second == ch) return i.first;
 	}
-	throw new std::invalid_argument("No such Elment for " + ch);
+	throw std::invalid_argument("Element::valueOf(wchar_t ch): No such Elment for " + ch);
 }
 
 bool Element::operator==(const Element& el) const {
