@@ -9,7 +9,7 @@
 
 class Board {
 public:
-	Board(String boardString = L"");
+	Board(String boardString = LL(""));
 
 	Element getAt(int x, int y) const;
 	bool isAt(int x, int y, Element el) const;

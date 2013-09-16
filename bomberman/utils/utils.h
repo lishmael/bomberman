@@ -13,12 +13,14 @@
 #include <stdexcept>
 
 #ifdef _WIN32
+#define LL(x) L## x
 
 typedef wchar_t Char;
 typedef std::wstring String;
 typedef std::wstringstream StringStream;
 
 #else // Assume linux
+#define LL(x) x
 
 typedef char Char;
 typedef std::string String;

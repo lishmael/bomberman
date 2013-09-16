@@ -10,7 +10,7 @@ String pointListToString(PointList lst) {
 
 Board::Board(String boardString) {
 	for(auto i_str = boardString.find(L'\n'); i_str != String::npos; i_str = boardString.find(L'\n')) {
-		boardString.replace(i_str, 1, L"");
+		boardString.replace(i_str, 1, LL(""));
 	}
 	board = boardString;
 	size = boardSize();
@@ -56,22 +56,22 @@ PointList Board::removeDuplicates(PointList lst) const {
 
 Point Board::getBomberman() const {
 	PointList rslt;
-	rslt.splice(rslt.end(), findAll(Element(L"BOMBERMAN")));
-	rslt.splice(rslt.end(), findAll(Element(L"BOMB_BOMBERMAN")));
-	rslt.splice(rslt.end(), findAll(Element(L"DEAD_BOMBERMAN")));
+	rslt.splice(rslt.end(), findAll(Element(LL("BOMBERMAN"))));
+	rslt.splice(rslt.end(), findAll(Element(LL("BOMB_BOMBERMAN"))));
+	rslt.splice(rslt.end(), findAll(Element(LL("DEAD_BOMBERMAN"))));
 	return rslt.front();
 }
 
 PointList Board::getOtherBombermans() const {
 	PointList rslt;
-	rslt.splice(rslt.end(), findAll(Element(L"OTHER_BOMBERMAN")));
-	rslt.splice(rslt.end(), findAll(Element(L"OTHER_BOMB_BOMBERMAN")));
-	rslt.splice(rslt.end(), findAll(Element(L"OTHER_DEAD_BOMBERMAN")));
+	rslt.splice(rslt.end(), findAll(Element(LL("OTHER_BOMBERMAN"))));
+	rslt.splice(rslt.end(), findAll(Element(LL("OTHER_BOMB_BOMBERMAN"))));
+	rslt.splice(rslt.end(), findAll(Element(LL("OTHER_DEAD_BOMBERMAN"))));
 	return rslt;
 }
 
 bool Board::isMyBombermanDead() const {
-	return board.find(Element(L"DEAD_BOMBERMAN").getChar()) != String::npos;
+	return board.find(Element(LL("DEAD_BOMBERMAN")).getChar()) != String::npos;
 }
 
 int Board::boardSize() const {
@@ -97,48 +97,48 @@ PointList Board::getBarriers() const {
 
 String Board::toString() const {
 	StringStream ss;
-	ss << L"Board:\n " << boardAsString()
-		<< L"Bomberman at: " << getBomberman().toString() << L"\n"
-		<< L"Other Bombermans at: " << pointListToString(getOtherBombermans()) << L"\n"
-		<< L"Meat choppers at: " << pointListToString(getMeatChoppers()) << L"\n"
-		<< L"Destroy walls at: " << pointListToString(getDestoyWalls()) << L"\n"
-		<< L"Bombs at: " << pointListToString(getBombs()) << L"\n"
-		<< L"Blasts: " << pointListToString(getBlasts()) << L"\n"
-		<< L"Expected blasts at: " << pointListToString(getFutureBlasts()) << L"\n";
+	ss << LL("Board:\n ") << boardAsString()
+		<< LL("Bomberman at: ") << getBomberman().toString() << LL("\n")
+		<< LL("Other Bombermans at: ") << pointListToString(getOtherBombermans()) << LL("\n")
+		<< LL("Meat choppers at: ") << pointListToString(getMeatChoppers()) << LL("\n")
+		<< LL("Destroy walls at: ") << pointListToString(getDestoyWalls()) << LL("\n")
+		<< LL("Bombs at: ") << pointListToString(getBombs()) << LL("\n")
+		<< LL("Blasts: ") << pointListToString(getBlasts()) << LL("\n")
+		<< LL("Expected blasts at: ") << pointListToString(getFutureBlasts()) << LL("\n");
 	return ss.str();
 }
 
 PointList Board::getMeatChoppers() const {
-	return findAll(Element(L"MEAT_CHOPPER"));
+	return findAll(Element(LL("MEAT_CHOPPER")));
 }
 
 PointList Board::getWalls() const {
-	return findAll(Element(L"WALL"));
+	return findAll(Element(LL("WALL")));
 }
 
 PointList Board::getDestoyWalls() const {
-	return findAll(Element(L"DESTROY_WALL"));
+	return findAll(Element(LL("DESTROY_WALL")));
 }
 
 PointList Board::getBombs() const {
 	PointList rslt;
-    rslt.splice(rslt.end(), findAll(Element(L"BOMB_TIMER_1")));
-    rslt.splice(rslt.end(), findAll(Element(L"BOMB_TIMER_2")));
-    rslt.splice(rslt.end(), findAll(Element(L"BOMB_TIMER_3")));
-    rslt.splice(rslt.end(), findAll(Element(L"BOMB_TIMER_4")));
-    rslt.splice(rslt.end(), findAll(Element(L"BOMB_TIMER_5")));
-    rslt.splice(rslt.end(), findAll(Element(L"BOMB_BOMBERMAN")));
+    rslt.splice(rslt.end(), findAll(Element(LL("BOMB_TIMER_1"))));
+    rslt.splice(rslt.end(), findAll(Element(LL("BOMB_TIMER_2"))));
+    rslt.splice(rslt.end(), findAll(Element(LL("BOMB_TIMER_3"))));
+    rslt.splice(rslt.end(), findAll(Element(LL("BOMB_TIMER_4"))));
+    rslt.splice(rslt.end(), findAll(Element(LL("BOMB_TIMER_5"))));
+    rslt.splice(rslt.end(), findAll(Element(LL("BOMB_BOMBERMAN"))));
     return rslt;
 }
 
 PointList Board::getBlasts() const {
-	return findAll(Element(L"BOOM"));
+	return findAll(Element(LL("BOOM")));
 }
 
 PointList Board::getFutureBlasts() const {
 	PointList bombs = getBombs();
-	bombs.splice(bombs.end(), findAll(Element(L"OTHER_BOMB_BOMBERMAN")));
-	bombs.splice(bombs.end(), findAll(Element(L"BOMB_BOMBERMAN")));
+	bombs.splice(bombs.end(), findAll(Element(LL("OTHER_BOMB_BOMBERMAN"))));
+	bombs.splice(bombs.end(), findAll(Element(LL("BOMB_BOMBERMAN"))));
 
 	PointList rslt;
 	PointList walls = getWalls();

@@ -26,12 +26,12 @@ bool Direction::operator!=(const Direction& d) const {
 }
 
 bool Direction::isNull() const {
-	return dir.first == L"NULL";
+	return dir.first == LL("NULL");
 }
 
 String Direction::toString() const {
 	StringStream ss;
-	ss <<  (isNull() ? L"" : dir.first);
+	ss <<  (isNull() ? LL("") : dir.first);
 	return ss.str();
 }
 
@@ -51,29 +51,29 @@ int Direction::changeY(int y) const {
 }
 
 Direction Direction::inverted() const {
-	if (dir.first == L"UP") return Direction(L"DOWN");
-	if (dir.first == L"DOWN") return Direction(L"UP");
-	if (dir.first == L"LEFT") return Direction(L"RIGHT");
-	if (dir.first == L"RIGHT") return Direction(L"LEFT");
-	return Direction(L"STOP");
+	if (dir.first == LL("UP")) return Direction(LL("DOWN"));
+	if (dir.first == LL("DOWN")) return Direction(LL("UP"));
+	if (dir.first == LL("LEFT")) return Direction(LL("RIGHT"));
+	if (dir.first == LL("RIGHT")) return Direction(LL("LEFT"));
+	return Direction(LL("STOP"));
 }
 
 
 DirectionMap Direction::initialise() {
 	DirectionMap mapOfDirections;
-	mapOfDirections[L"NULL"] = DirectionVector(-1, 0, 0);
+	mapOfDirections[LL("NULL")] = DirectionVector(-1, 0, 0);
 
 	// direction of Bomberman
-	mapOfDirections[L"UP"] = DirectionVector(2, 0, -1);
-	mapOfDirections[L"DOWN"] = DirectionVector(3, 0, 1);
-	mapOfDirections[L"LEFT"] = DirectionVector(0, -1, 0);
-	mapOfDirections[L"RIGHT"] = DirectionVector(1, 1, 0);
+	mapOfDirections[LL("UP")] = DirectionVector(2, 0, -1);
+	mapOfDirections[LL("DOWN")] = DirectionVector(3, 0, 1);
+	mapOfDirections[LL("LEFT")] = DirectionVector(0, -1, 0);
+	mapOfDirections[LL("RIGHT")] = DirectionVector(1, 1, 0);
 
 	// drop a bomb
-	mapOfDirections[L"ACT"] = DirectionVector(4, 0, 0);
+	mapOfDirections[LL("ACT")] = DirectionVector(4, 0, 0);
 
 	// stop the Bomberman
-	mapOfDirections[L"STOP"] = DirectionVector(5, 0, 0);
+	mapOfDirections[LL("STOP")] = DirectionVector(5, 0, 0);
 	return mapOfDirections;
 }
 

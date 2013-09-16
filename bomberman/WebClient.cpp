@@ -53,10 +53,10 @@ void WebClient::onMessage(Client* c, websocketpp::connection_hdl hdl, message_pt
 	boardString = buffer_got;
 #endif 
 
-	if (boardString.substr(0, 6) == L"board=") {
+	if (boardString.substr(0, 6) == LL("board=")) {
 		boardString = boardString.substr(6, boardString.length() - 6);
 
-		while (*boardString.rbegin() == L'\0') {
+		while (*boardString.rbegin() == LL('\0')) {
 			boardString.pop_back();
 		}
 
@@ -71,7 +71,7 @@ void WebClient::onMessage(Client* c, websocketpp::connection_hdl hdl, message_pt
 		WideCharToMultiByte(CP_UTF8, 0, &answer[0], answer.length(),
 										&utf_answer[0], utf_answer.capacity(), NULL, NULL);
 		if (utf_answer == "") { // This happens if bomberman's still dead
-			if (answer != L"") {
+			if (answer != LL("")) {
 				throw std::runtime_error("WebClient::onMessage(...): Conversion from Char to utf8 error!");
 			}
 			return;
