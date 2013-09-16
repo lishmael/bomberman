@@ -12,10 +12,23 @@
 #include <string>
 #include <stdexcept>
 
+#ifdef _WIN32
+
+typedef wchar_t Char;
 typedef std::wstring String;
 typedef std::wstringstream StringStream;
-typedef std::map<String, wchar_t> ElementMap;
-typedef std::pair<String, wchar_t> ElementItem;
+
+#else // Assume linux
+
+typedef char Char;
+typedef std::string String;
+typedef std::stringstream StringStream;
+
+#endif
+
+typedef std::map<String, Char> ElementMap;
+typedef std::pair<String, Char> ElementItem;
+
 
 typedef std::tuple<int, int, int> DirectionVector; // Direction vector: value, dx, dy
 typedef std::pair<String, DirectionVector> DirectionItem;

@@ -1,6 +1,6 @@
 ﻿#include "Element.h"
 
-Element::Element(wchar_t el) {
+Element::Element(Char el) {
 	elem.first = valueOf(el);
 	elem.second = el;
 }
@@ -10,15 +10,15 @@ Element::Element(String name) {
 	elem.first = name;
 }
 
-wchar_t Element::getChar() const {
+Char Element::getChar() const {
 	return elem.second;
 }
 
-String Element::valueOf(wchar_t ch) const {
+String Element::valueOf(Char ch) const {
 	for (auto i : Elements) {
 		if (i.second == ch) return i.first;
 	}
-	throw std::invalid_argument("Element::valueOf(wchar_t ch): No such Elment for " + ch);
+	throw std::invalid_argument("Element::valueOf(Char ch): No such Elment for " + ch);
 }
 
 bool Element::operator==(const Element& el) const {

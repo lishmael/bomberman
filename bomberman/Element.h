@@ -6,14 +6,14 @@
 
 class Element {
 public:
-	Element(wchar_t el);
+	Element(Char el);
 	Element(String name);
 
 	bool operator==(const Element& el) const;
 
-	wchar_t getChar() const;
-	String valueOf(wchar_t ch) const;
-
+	Char getChar() const;
+	String valueOf(Char ch) const;
+	
 private:
 	static ElementMap initialiseElements();
 	static const ElementMap Elements;
