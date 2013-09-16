@@ -13,11 +13,11 @@ int main(int argc, char** argv) {
 	WebClient wcl(dds);
 	try {
 		wcl.run("ws://tetrisj.jvmhost.net:12270/codenjoy-contest/ws", "lishmael");
-	} catch (const std::exception& ex) {
-		std::cout << "Exception happened: " << ex.what() << std::endl;
+	} catch (const std::runtime_error& ex) {
+		std::cout << "Runtime error happened: " << ex.what() << std::endl;
 		EXITCODE = 1;
 	} catch (const std::invalid_argument& iarex) {
-		std::cout << "Exception happened: " << iarex.what() << std::endl;
+		std::cout << "Invalid argument: " << iarex.what() << std::endl;
 		EXITCODE = 2;
 	} catch (websocketpp::lib::error_code e) {
 		std::cout << e.message() << std::endl;
