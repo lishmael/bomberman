@@ -55,7 +55,6 @@ void WebClient::onMessage(Client* c, websocketpp::connection_hdl hdl, message_pt
 
 	if (boardString.substr(0, 6) == LL("board=")) {
 		boardString = boardString.substr(6, boardString.length() - 6);
-
 		while (*boardString.rbegin() == LL('\0')) {
 			boardString.pop_back();
 		}

@@ -21,7 +21,6 @@ typedef std::wstringstream StringStream;
 
 #else // Assume linux
 #define LL(x) x
-
 typedef char Char;
 typedef std::string String;
 typedef std::stringstream StringStream;

@@ -9,7 +9,7 @@ String pointListToString(PointList lst) {
 }
 
 Board::Board(String boardString) {
-	for(auto i_str = boardString.find(L'\n'); i_str != String::npos; i_str = boardString.find(L'\n')) {
+	for(auto i_str = boardString.find(LL('\n')); i_str != String::npos; i_str = boardString.find(LL('\n'))) {
 		boardString.replace(i_str, 1, LL(""));
 	}
 	board = boardString;
@@ -81,7 +81,7 @@ int Board::boardSize() const {
 String Board::boardAsString() const {
 	StringStream ss;
 	for (auto i = 0; i < size; ++i) {
-		ss << board.substr(i * size, (i + 1) * size) << L'\n';
+		ss << board.substr(i * size, (i + 1) * size) << LL('\n');
 	}
 	return ss.str();
 }
