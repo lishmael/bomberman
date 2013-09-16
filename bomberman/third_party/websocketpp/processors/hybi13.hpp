@@ -44,6 +44,11 @@
 #include <vector>
 #include <utility>
 
+#ifndef _WIN32
+#include <algorithm>
+using std::min;
+#endif
+
 namespace websocketpp {
 namespace processor {
 
