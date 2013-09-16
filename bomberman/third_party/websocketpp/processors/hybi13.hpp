@@ -389,7 +389,7 @@ public:
             } else if (m_state == EXTENSION) {
                 m_state = APPLICATION;
             } else if (m_state == APPLICATION) {
-                size_t bytes_to_process = std::min(m_bytes_needed,len-p);
+                size_t bytes_to_process = min(m_bytes_needed,len-p);
 
                 if (bytes_to_process > 0) {
                     p += this->process_payload_bytes(buf+p,bytes_to_process,ec);
@@ -671,7 +671,7 @@ protected:
 
     /// Reads bytes from buf into m_extended_header
     size_t copy_extended_header_bytes(uint8_t const * buf, size_t len) {
-        size_t bytes_to_read = std::min(m_bytes_needed,len);
+        size_t bytes_to_read = min(m_bytes_needed,len);
 
         std::copy(buf,buf+bytes_to_read,m_extended_header.bytes+m_cursor);
         m_cursor += bytes_to_read;
