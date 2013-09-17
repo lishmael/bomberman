@@ -5,6 +5,10 @@ WebClient::WebClient(DirectionSolver* ds) : solver(ds)   {
 	if (solver == nullptr) {
 		throw std::invalid_argument("Solver cant be uninitialised!");
 	}
+	client.clear_access_channels(websocketpp::log::alevel::all);
+	client.clear_error_channels(websocketpp::log::elevel::all);
+	client.init_asio();
+	client.set_message_handler(bind(&WebClient::onMessage, this, &client, ::_1, ::_2));
 }
 
 
@@ -24,10 +28,7 @@ void WebClient::run(std::string server, std::string user) {
 
 bool WebClient::connect() {
 	std::string connectionString = serverName + "?user=" + userName;
-	client.clear_access_channels(websocketpp::log::alevel::all);
-	client.clear_error_channels(websocketpp::log::elevel::all);
-	client.init_asio();
-	client.set_message_handler(bind(&WebClient::onMessage, this, &client, ::_1, ::_2));
+	
 	websocketpp::lib::error_code err;
 	Client::connection_ptr con = client.get_connection(connectionString, err);
 	client.connect(con);
